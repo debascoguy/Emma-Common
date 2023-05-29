@@ -1,5 +1,5 @@
 <?php
-namespace Emma\Common\Interfaces;
+namespace Emma\Common\CallBackHandler\Interfaces;
 
 interface CallBackHandlerInterface 
 {

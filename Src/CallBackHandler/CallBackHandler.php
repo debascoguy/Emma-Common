@@ -2,7 +2,7 @@
 
 namespace Emma\Common\CallBackHandler;
 
-use Emma\Common\Interfaces\CallBackHandlerInterface;
+use Emma\Common\CallBackHandler\Interfaces\CallBackHandlerInterface;
 
 /**
  * @Author: Ademola Aina
