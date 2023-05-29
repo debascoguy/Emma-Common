@@ -14,7 +14,7 @@ class Property implements PropertyInterface
     /**
      * @var array
      */
-    private $parameters = [];
+    protected $parameters = [];
 
     /**
      * @param array $parameters
@@ -88,6 +88,16 @@ class Property implements PropertyInterface
     public function register($name, $concreteOrValue)
     {
         $this->parameters[$name] = $concreteOrValue;
+    }
+
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @return bool
+     */
+    public function isEqual(string $name, $value, bool $caseSensitive = true)
+    {
+        return $caseSensitive ? $this->get($name) == $value : strtolower($this->get($name)) == strtolower($value);
     }
 
     /**
