@@ -1,0 +1,21 @@
+{
+    "name": "emma/common",
+    "description": "Emma Common PHP Projects/Library/Tools that supports other Emma Projects..",
+    "authors": [
+        {
+            "name": "Ademola Aina",
+            "email" : "debascoguy@gmail.com",
+            "homepage": "https://github.com/debascoguy/Di",
+            "role": "Founder/Lead Software Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Emma\\Common\\": "Src/"
+        }
+    },
+    "license": "GPL-2.0-only"
+}
