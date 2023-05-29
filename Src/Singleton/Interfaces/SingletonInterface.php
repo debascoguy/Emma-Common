@@ -1,6 +1,6 @@
 <?php
 
-namespace Emma\Common\Singleton\SingletonInterface;
+namespace Emma\Common\Singleton\Interfaces;
 
 interface SingletonInterface
 {

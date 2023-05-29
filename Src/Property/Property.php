@@ -2,7 +2,7 @@
 
 namespace Emma\Common\Property;
 
-use Emma\Di\Property\Interfaces\PropertyInterface;
+use Emma\Common\Property\Interfaces\PropertyInterface;
 
 /**
  * @Author: Ademola Aina
