@@ -13,7 +13,7 @@ trait Singleton
     /**
      * @return $this
      */
-    public static function getInstance()
+    public static function getInstance(): static
     {
         if (self::$instance == null) {
             self::$instance = new self();

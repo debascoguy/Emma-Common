@@ -7,6 +7,6 @@ interface SingletonInterface
     /**
      * @return object
      */
-    public static function getInstance();
+    public static function getInstance(): object;
 
 }

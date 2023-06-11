@@ -14,12 +14,12 @@ class Property implements PropertyInterface
     /**
      * @var array
      */
-    protected $parameters = [];
+    protected array $parameters = [];
 
     /**
      * @param array $parameters
      */
-    public function __construct($parameters = [])
+    public function __construct(array $parameters = [])
     {
         $this->parameters = $parameters;
     }
@@ -66,24 +66,25 @@ class Property implements PropertyInterface
     /**
      * @return array
      */
-    public function getParameters()
+    public function getParameters(): array
     {
         return $this->parameters;
     }
 
     /**
      * @param array $parameters
-     * @return
+     * @return $this
      */
-    public function setParameters(array $parameters)
+    public function setParameters(array $parameters): static
     {
         $this->parameters = $parameters;
         return $this;
     }
 
     /**
-     * @param $name
-     * @param $concreteOrValue
+     * @param mixed $name
+     * @param mixed $concreteOrValue
+     * @return PropertyInterface|void
      */
     public function register($name, $concreteOrValue)
     {
@@ -92,10 +93,11 @@ class Property implements PropertyInterface
 
     /**
      * @param string $name
-     * @param mixed $value
+     * @param $value
+     * @param bool $caseSensitive
      * @return bool
      */
-    public function isEqual(string $name, $value, bool $caseSensitive = true)
+    public function isEqual(string $name, $value, bool $caseSensitive = true): bool
     {
         return $caseSensitive ? $this->get($name) == $value : strtolower($this->get($name)) == strtolower($value);
     }
@@ -104,7 +106,7 @@ class Property implements PropertyInterface
      * @param string $name
      * @return bool
      */
-    public function has($name)
+    public function has($name): bool
     {
         return array_key_exists($name, $this->parameters);
     }
@@ -113,7 +115,7 @@ class Property implements PropertyInterface
      * @param string $name
      * @return bool
      */
-    public function hasValue($name)
+    public function hasValue($name): bool
     {
         return isset($this->parameters[$name]) && !empty($this->parameters[$name]);
     }
