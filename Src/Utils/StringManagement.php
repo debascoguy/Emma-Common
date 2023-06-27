@@ -10,7 +10,12 @@ namespace Emma\Common\Utils;
  */
 class StringManagement
 {
-    
+
+    public static function stripSpace(string $string, string $replace_with = ""): string
+    {
+        return trim(preg_replace('/\s+/', $replace_with, $string));
+    }
+
     /**
      * @param int $length
      * @return string
