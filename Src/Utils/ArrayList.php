@@ -1,6 +1,8 @@
 <?php
-namespace Emma\Stdlib;
-use Emma\ErrorHandler\Exception\BaseException;
+
+namespace Emma\Common\Utils;
+
+use Exception;
 
 /**
  * Class ArrayList
@@ -54,7 +56,7 @@ class ArrayList implements
     /**
      * @param mixed $index
      * @return mixed
-     * @throws BaseException
+     * @throws Exception
      */
     public function offsetGet($index)
     {
@@ -62,14 +64,14 @@ class ArrayList implements
             return $this->arrayList[$index];
         } else {
             $functionName = __CLASS__ . "::" . __METHOD__;
-            throw new BaseException("ERROR in {$functionName} <br> Index MUST be an Integer value");
+            throw new Exception("ERROR in {$functionName} <br> Index MUST be an Integer value");
         }
     }
 
     /**
      * @param mixed $index
      * @param mixed $value
-     * @throws BaseException
+     * @throws Exception
      */
     public function offsetSet($index, $value): void
     {
@@ -77,13 +79,13 @@ class ArrayList implements
             $this->arrayList[$index] = $value;
         } else {
             $functionName = __CLASS__ . "::" . __METHOD__;
-            throw new BaseException("ERROR in {$functionName} <br> Index MUST be an Integer value");
+            throw new Exception("ERROR in {$functionName} <br> Index MUST be an Integer value");
         }
     }
 
     /**
      * @param mixed $index
-     * @throws BaseException
+     * @throws Exception
      */
     public function offsetUnset($index): void
     {
@@ -99,7 +101,7 @@ class ArrayList implements
             $this->arrayList = $newArrayList;
         } else {
             $functionName = __CLASS__ . "::" . __METHOD__;
-            throw new BaseException("ERROR in {$functionName} <br> Index MUST be an Integer value");
+            throw new Exception("ERROR in {$functionName} <br> Index MUST be an Integer value");
         }
     }
 
@@ -116,7 +118,7 @@ class ArrayList implements
      * Returns the element at the specified position in this list.
      * @param $index
      * @return mixed
-     * @throws BaseException
+     * @throws Exception
      */
     public function get($index)
     {
@@ -179,7 +181,7 @@ class ArrayList implements
      * Inserts the specified element at the specified position in this list.
      * @param $key
      * @param $obj
-     * @throws BaseException
+     * @throws Exception
      */
     public function addOrReplaceAt($key, $obj)
     {
@@ -256,7 +258,7 @@ class ArrayList implements
     /**
      * removes the element at the specified position in this list.
      * @param $index
-     * @throws BaseException
+     * @throws Exception
      */
     public function remove($index)
     {
@@ -267,7 +269,7 @@ class ArrayList implements
      * Removes from this List all of the elements whose index is between fromIndex, inclusive and toIndex, exclusive.
      * @param $fromIndex
      * @param $toIndex
-     * @throws BaseException
+     * @throws Exception
      */
     public function removeRange($fromIndex, $toIndex)
     {
@@ -283,7 +285,7 @@ class ArrayList implements
             $this->arrayList = $newArrayList;
         } else {
             $functionName = __CLASS__ . "::" . __METHOD__;
-            throw new BaseException("ERROR in $functionName <br> Index MUST be an Integer value");
+            throw new Exception("ERROR in $functionName <br> Index MUST be an Integer value");
         }
     }
 

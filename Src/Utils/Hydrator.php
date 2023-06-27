@@ -1,9 +1,7 @@
 <?php
 
-namespace Emma\Stdlib;
+namespace Emma\Common\Utils;
 
-use Emma\App\Model\Entity\EmmaEntity;
-use Emma\App\Model\Entity\EmmaEntityDataType;
 use Emma\Common\Singleton\Singleton;
 use Emma\Common\Utils\StringManagement;
 

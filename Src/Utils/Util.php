@@ -1,6 +1,6 @@
 <?php
 
-namespace Emma\Stdlib;
+namespace Emma\Common\Utils;
 
 /**
  * Class Util
