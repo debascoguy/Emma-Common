@@ -31,10 +31,10 @@ class File
     /**
      * @param $path
      */
-    public static function makeDirectory($path, $recursive = false)
+    public static function makeDirectory(string $path, bool $recursive = false)
     {
         if (!is_dir($path)) {
-            mkdir($path, '0777', $recursive);
+            mkdir($path, 0777, $recursive);
         }
     }
 
@@ -149,6 +149,34 @@ class File
         readfile($file);
         if ($delete) {
             unlink($file);
+        }
+    }
+
+    /**
+     * @param $source
+     * @param $target
+     * @return void
+     */
+    public function copy($source, $target )
+    {
+        if ( is_dir( $source ) ) {
+            @mkdir( $target );
+            $d = dir( $source );
+            while ( FALSE !== ( $entry = $d->read() ) ) {
+                if ( $entry == '.' || $entry == '..' ) {
+                    continue;
+                }
+                $Entry = $source . '/' . $entry;
+                if ( is_dir( $Entry ) ) {
+                    full_copy( $Entry, $target . '/' . $entry );
+                    continue;
+                }
+                copy( $Entry, $target . '/' . $entry );
+            }
+
+            $d->close();
+        }else {
+            copy( $source, $target );
         }
     }
 
