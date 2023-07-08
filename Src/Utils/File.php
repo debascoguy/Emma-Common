@@ -157,28 +157,28 @@ class File
      * @param $target
      * @return void
      */
-    public function copy($source, $target )
+    public function copy(string $source, string $target)
     {
-        if ( is_dir( $source ) ) {
-            @mkdir( $target );
-            $d = dir( $source );
-            while ( FALSE !== ( $entry = $d->read() ) ) {
+        if (is_dir($source)) {
+            @mkdir($target);
+            $d = dir($source);
+            while ( false !== ( $entry = $d->read() ) ) {
                 if ( $entry == '.' || $entry == '..' ) {
                     continue;
                 }
-                $Entry = $source . '/' . $entry;
-                if ( is_dir( $Entry ) ) {
-                    $this->copy( $Entry, $target . '/' . $entry );
+
+                $sourceFileOrDirectory = $source . '/' . $entry;
+                if (is_dir($sourceFileOrDirectory)) {
+                    $this->copy($sourceFileOrDirectory, $target . '/' . $entry);
                     continue;
                 }
-                copy( $Entry, $target . '/' . $entry );
+                copy($sourceFileOrDirectory, $target . '/' . $entry);
             }
-
             $d->close();
-        }else {
-            copy( $source, $target );
+        } else {
+            copy($source, $target);
         }
     }
 
-
+    
 }
